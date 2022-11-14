@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dddsample.infrastructure.mapper.TaskMapper">
+    <resultMap id="task" type="com.example.dddsample.infrastructure.repository.Task">
+        <id column="id" property="id" />
+        <result column="name" property="name"/>
+        <result column="due_date" property="dueDate"/>
+        <result column="task_status" property="taskStatus" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </resultMap>
+    <select id="selectById" resultMap="task">
+        select id, name, due_date, task_status
+        from task
+        where id = #{id}
+    </select>
+<!--    <insert id="save">-->
+<!--        insert into task-->
+<!--            (id, name, due_date, task_status)-->
+<!--        values (#{id}, #{name}, #{due_date}, #{task_status})-->
+<!--    </insert>-->
+</mapper>

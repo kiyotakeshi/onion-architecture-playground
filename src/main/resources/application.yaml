@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sample
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: password
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-description: Initial
+    #    @see org/springframework/boot/autoconfigure/flyway/FlywayProperties.java
+    locations: "classpath:db/migration"
