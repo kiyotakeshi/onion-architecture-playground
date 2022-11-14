@@ -12,6 +12,10 @@
         from task
         where id = #{id}
     </select>
+    <select id="selectAll" resultMap="task">
+        select id, name, due_date, task_status
+        from task
+    </select>
 <!--    <insert id="save">-->
 <!--        insert into task-->
 <!--            (id, name, due_date, task_status)-->

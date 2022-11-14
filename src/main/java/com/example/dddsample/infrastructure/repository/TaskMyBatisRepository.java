@@ -5,6 +5,8 @@ import com.example.dddsample.domain.task.TaskRepository;
 import com.example.dddsample.infrastructure.mapper.TaskMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author kiyota
  */
@@ -21,5 +23,14 @@ public class TaskMyBatisRepository implements TaskRepository {
     public Task selectById(int id) {
         var task = taskMapper.selectById(id);
         return Task.reconstruct(task.getId(), task.getName(), task.getDueDate(), task.getTaskStatus());
+    }
+
+    @Override
+    public List<Task> selectAll() {
+        var tasks = taskMapper.selectAll();
+        return tasks.stream()
+                .map(task ->
+                        Task.reconstruct(task.getId(), task.getName(), task.getDueDate(), task.getTaskStatus()))
+                .toList();
     }
 }
