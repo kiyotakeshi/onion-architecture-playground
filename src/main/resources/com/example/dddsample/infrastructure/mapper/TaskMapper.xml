@@ -16,9 +16,9 @@
         select id, name, due_date, task_status
         from task
     </select>
-<!--    <insert id="save">-->
-<!--        insert into task-->
-<!--            (id, name, due_date, task_status)-->
-<!--        values (#{id}, #{name}, #{due_date}, #{task_status})-->
-<!--    </insert>-->
+    <insert id="save">
+        insert into task
+            (name, due_date, task_status)
+        values (#{name}, #{dueDate}, #{taskStatus, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler, javaType=com.example.dddsample.domain.task.TaskStatus})
+    </insert>
 </mapper>

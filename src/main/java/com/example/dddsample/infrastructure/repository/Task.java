@@ -32,4 +32,17 @@ public class Task {
     public TaskStatus getTaskStatus() {
         return taskStatus;
     }
+
+    protected Task() {
+    }
+
+    Task(String name, LocalDate dueDate, TaskStatus taskStatus) {
+        this.name = name;
+        this.dueDate = dueDate;
+        this.taskStatus = taskStatus;
+    }
+
+    public static Task createTestTask(){
+        return new Task("test", LocalDate.of(2022,11,15), TaskStatus.OPEN);
+    }
 }

@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface TaskRepository {
     Task selectById(int id);
-
     List<Task> selectAll();
+    void save(Task task);
 }

@@ -21,8 +21,7 @@ class TaskMapperTests {
 
     @Test
     void selectById() {
-        Task task = taskMapper.selectById(1);
-        assertThat(task.getId()).isEqualTo(1);
+        Task task = taskMapper.selectById(1000);
         assertThat(task.getName()).isEqualTo("test");
         assertThat(task.getDueDate()).isEqualTo(LocalDate.of(2022,11,14));
         assertThat(task.getTaskStatus()).isEqualTo(TaskStatus.IN_PROGRESS);
@@ -35,5 +34,10 @@ class TaskMapperTests {
         assertThat(tasks.get(0).getTaskStatus()).isEqualTo(TaskStatus.IN_PROGRESS);
         assertThat(tasks.get(1).getTaskStatus()).isEqualTo(TaskStatus.OPEN);
         assertThat(tasks.get(2).getTaskStatus()).isEqualTo(TaskStatus.IN_REVIEW);
+    }
+
+    @Test
+    void save() {
+        taskMapper.save(Task.createTestTask());
     }
 }

@@ -14,4 +14,6 @@ public interface TaskMapper {
     Task selectById(@Param("id") int id);
 
     List<Task> selectAll();
+
+    void save(Task task);
 }

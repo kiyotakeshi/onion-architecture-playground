@@ -12,6 +12,11 @@ public class Task {
     private LocalDate dueDate;
     private TaskStatus taskStatus;
 
+    private Task(String name, LocalDate dueDate, TaskStatus taskStatus) {
+        this.name = name;
+        this.dueDate = dueDate;
+        this.taskStatus = taskStatus;
+    }
     private Task(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
         this.id = id;
         this.name = name;
@@ -23,7 +28,7 @@ public class Task {
         if(name == null || dueDate == null) {
             throw new IllegalArgumentException("not set requirement");
         }
-        return new Task(1, name, dueDate, TaskStatus.OPEN);
+        return new Task(name, dueDate, TaskStatus.OPEN);
     }
 
     public static Task reconstruct(int id, String name, LocalDate dueDate, TaskStatus status) {

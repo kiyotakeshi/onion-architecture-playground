@@ -33,4 +33,10 @@ public class TaskMyBatisRepository implements TaskRepository {
                         Task.reconstruct(task.getId(), task.getName(), task.getDueDate(), task.getTaskStatus()))
                 .toList();
     }
+
+    @Override
+    public void save(Task task) {
+        var task1 = new com.example.dddsample.infrastructure.repository.Task(task.getName(), task.getDueDate(), task.getTaskStatus());
+        taskMapper.save(task1);
+    }
 }
