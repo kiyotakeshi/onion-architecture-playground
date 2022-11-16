@@ -1,6 +1,5 @@
-package com.example.dddsample.infrastructure.mapper;
+package com.example.dddsample.infrastructure.repository;
 
-import com.example.dddsample.infrastructure.repository.Task;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,4 +15,8 @@ public interface TaskMapper {
     List<Task> selectAll();
 
     void save(Task task);
+
+    void deleteById(@Param("id") int id);
+
+    Task update(Task task);
 }

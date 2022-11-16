@@ -21,4 +21,4 @@ logging:
       example:
         dddsample:
           infrastructure:
-            mapper: DEBUG
+            repository: DEBUG

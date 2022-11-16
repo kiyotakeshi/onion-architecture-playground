@@ -1,6 +1,6 @@
 package com.example.dddsample.usecase.task;
 
-import com.example.dddsample.domain.task.Task;
+import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class GetTaskUsecase {
         this.taskRepository = taskRepository;
     }
 
-    public Task getTask(Integer id) {
+    public TaskEntity getTask(Integer id) {
         return taskRepository.selectById(id);
     }
 }

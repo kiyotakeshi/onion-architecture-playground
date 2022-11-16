@@ -1,24 +1,21 @@
 package com.example.dddsample.usecase.task;
 
-import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author kiyota
  */
 @Service
-public class GetTasksUsecase {
+public class DeleteTaskUsecase {
 
     private final TaskRepository taskRepository;
 
-    public GetTasksUsecase(TaskRepository taskRepository) {
+    public DeleteTaskUsecase(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
-    public List<TaskEntity> getTasks() {
-        return taskRepository.selectAll();
+    public void deleteTask(Integer id) {
+        taskRepository.deleteTask(id);
     }
 }

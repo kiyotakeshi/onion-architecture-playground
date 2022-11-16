@@ -17,6 +17,23 @@ public class Task {
 
     private TaskStatus taskStatus;
 
+    Task(String name, LocalDate dueDate, TaskStatus taskStatus) {
+        this.name = name;
+        this.dueDate = dueDate;
+        this.taskStatus = taskStatus;
+    }
+
+    Task(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
+        this.id = id;
+        this.name = name;
+        this.dueDate = dueDate;
+        this.taskStatus = taskStatus;
+    }
+
+    public static Task createTestTask(){
+        return new Task("test", LocalDate.of(2022,11,15), TaskStatus.OPEN);
+    }
+
     public int getId() {
         return id;
     }
@@ -34,15 +51,5 @@ public class Task {
     }
 
     protected Task() {
-    }
-
-    Task(String name, LocalDate dueDate, TaskStatus taskStatus) {
-        this.name = name;
-        this.dueDate = dueDate;
-        this.taskStatus = taskStatus;
-    }
-
-    public static Task createTestTask(){
-        return new Task("test", LocalDate.of(2022,11,15), TaskStatus.OPEN);
     }
 }

@@ -8,15 +8,19 @@ import java.time.LocalDate;
 /**
  * @author kiyota
  */
-public class TaskRequestDto {
+public class TaskUpdateRequestDto {
     private String name;
 
     @JsonAlias(value = "due_date")
     private LocalDate dueDate;
 
-    public TaskRequestDto(String name, LocalDate dueDate, TaskStatus taskStatus) {
+    @JsonAlias(value = "task_status")
+    private TaskStatus taskStatus;
+
+    public TaskUpdateRequestDto(String name, LocalDate dueDate, TaskStatus taskStatus) {
         this.name = name;
         this.dueDate = dueDate;
+        this.taskStatus = taskStatus;
     }
 
     public String getName() {
@@ -25,5 +29,9 @@ public class TaskRequestDto {
 
     public LocalDate getDueDate() {
         return dueDate;
+    }
+
+    public TaskStatus getTaskStatus() {
+        return taskStatus;
     }
 }

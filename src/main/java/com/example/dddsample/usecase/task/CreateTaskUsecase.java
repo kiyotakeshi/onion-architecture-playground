@@ -1,6 +1,6 @@
 package com.example.dddsample.usecase.task;
 
-import com.example.dddsample.domain.task.Task;
+import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +21,7 @@ public class CreateTaskUsecase {
 
     @Transactional
     public void createTask(String name, LocalDate dueDate){
-        Task task = Task.create(name, dueDate);
-        taskRepository.save(task);
+        TaskEntity taskEntity = TaskEntity.create(name, dueDate);
+        taskRepository.save(taskEntity);
     }
 }
