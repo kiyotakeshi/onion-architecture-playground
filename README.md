@@ -53,3 +53,9 @@ docker compose up -d
 ```shell
 ./gradlew test
 ```
+
+## generate jOOQ code
+
+```shell
+$ ./gradlew generateJooq
+```
