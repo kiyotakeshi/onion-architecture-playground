@@ -19,20 +19,21 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class GetTaskUsecaseTests {
 
-    @InjectMocks
-    GetTaskUsecase sut;
+	@InjectMocks
+	GetTaskUsecase sut;
 
-    @Mock
-    TaskRepository taskRepository;
+	@Mock
+	TaskRepository taskRepository;
 
-    @Test
-    void getTask() {
-        TaskEntity taskEntity = TaskEntityFixture.TASK_A();
-        when(taskRepository.selectById(anyInt())).thenReturn(taskEntity);
+	@Test
+	void getTask() {
+		TaskEntity taskEntity = TaskEntityFixture.TASK_A();
+		when(taskRepository.selectById(anyInt())).thenReturn(taskEntity);
 
-        TaskEntity actual = sut.getTask(1);
+		TaskEntity actual = sut.getTask(1);
 
-        verify(taskRepository,times(1)).selectById(eq(1));
-        assertThat(actual).isEqualTo(taskEntity);
-    }
+		verify(taskRepository, times(1)).selectById(eq(1));
+		assertThat(actual).isEqualTo(taskEntity);
+	}
+
 }

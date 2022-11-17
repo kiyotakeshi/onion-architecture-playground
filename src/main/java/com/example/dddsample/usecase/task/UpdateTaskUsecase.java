@@ -13,15 +13,16 @@ import java.time.LocalDate;
 @Service
 public class UpdateTaskUsecase {
 
-    private final TaskRepository taskRepository;
+	private final TaskRepository taskRepository;
 
-    public UpdateTaskUsecase(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
+	public UpdateTaskUsecase(TaskRepository taskRepository) {
+		this.taskRepository = taskRepository;
+	}
 
-    public TaskEntity updateTask(Integer id, String name, LocalDate dueDate, TaskStatus taskStatus) {
-        taskRepository.selectById(id);
-        TaskEntity taskEntity = TaskEntity.reconstruct(id, name, dueDate, taskStatus);
-        return taskRepository.update(taskEntity);
-    }
+	public TaskEntity updateTask(Integer id, String name, LocalDate dueDate, TaskStatus taskStatus) {
+		taskRepository.selectById(id);
+		TaskEntity taskEntity = TaskEntity.reconstruct(id, name, dueDate, taskStatus);
+		return taskRepository.update(taskEntity);
+	}
+
 }

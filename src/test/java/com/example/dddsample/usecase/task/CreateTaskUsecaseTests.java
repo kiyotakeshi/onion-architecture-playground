@@ -19,18 +19,19 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class CreateTaskUsecaseTests {
 
-    @InjectMocks
-    private CreateTaskUsecase sut;
+	@InjectMocks
+	private CreateTaskUsecase sut;
 
-    @Mock
-    private TaskRepository taskRepository;
+	@Mock
+	private TaskRepository taskRepository;
 
-    @Test
-    void createTask() {
-        doNothing().when(this.taskRepository).save(any());
+	@Test
+	void createTask() {
+		doNothing().when(this.taskRepository).save(any());
 
-        sut.createTask("test", LocalDate.now());
+		sut.createTask("test", LocalDate.now());
 
-        verify(this.taskRepository, times(1)).save(isA(TaskEntity.class));
-    }
+		verify(this.taskRepository, times(1)).save(isA(TaskEntity.class));
+	}
+
 }

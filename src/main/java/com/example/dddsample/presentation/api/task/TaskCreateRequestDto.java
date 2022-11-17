@@ -9,21 +9,23 @@ import java.time.LocalDate;
  * @author kiyota
  */
 public class TaskCreateRequestDto {
-    private String name;
 
-    @JsonAlias(value = "due_date")
-    private LocalDate dueDate;
+	private String name;
 
-    public TaskCreateRequestDto(String name, LocalDate dueDate, TaskStatus taskStatus) {
-        this.name = name;
-        this.dueDate = dueDate;
-    }
+	@JsonAlias(value = "due_date")
+	private LocalDate dueDate;
 
-    public String getName() {
-        return name;
-    }
+	public TaskCreateRequestDto(String name, LocalDate dueDate, TaskStatus taskStatus) {
+		this.name = name;
+		this.dueDate = dueDate;
+	}
 
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public LocalDate getDueDate() {
+		return dueDate;
+	}
+
 }

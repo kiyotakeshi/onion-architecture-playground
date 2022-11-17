@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeleteTaskUsecase {
 
-    private final TaskRepository taskRepository;
+	private final TaskRepository taskRepository;
 
-    public DeleteTaskUsecase(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
+	public DeleteTaskUsecase(TaskRepository taskRepository) {
+		this.taskRepository = taskRepository;
+	}
 
-    public void deleteTask(Integer id) {
-        taskRepository.deleteById(id);
-    }
+	public void deleteTask(Integer id) {
+		taskRepository.deleteById(id);
+	}
+
 }

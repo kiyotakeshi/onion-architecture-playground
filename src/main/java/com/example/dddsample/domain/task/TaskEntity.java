@@ -8,63 +8,70 @@ import java.util.Objects;
  */
 public class TaskEntity {
 
-    private int id;
-    private String name;
-    private LocalDate dueDate;
-    private TaskStatus taskStatus;
+	private int id;
 
-    private TaskEntity(String name, LocalDate dueDate, TaskStatus taskStatus) {
-        this.name = name;
-        this.dueDate = dueDate;
-        this.taskStatus = taskStatus;
-    }
-    TaskEntity(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
-        this.id = id;
-        this.name = name;
-        this.dueDate = dueDate;
-        this.taskStatus = taskStatus;
-    }
+	private String name;
 
-    public static TaskEntity create(String name, LocalDate dueDate) {
-        if(name == null || name.equals("")) {
-            throw new IllegalArgumentException("not set name");
-        }
-        if(dueDate == null){
-            throw new IllegalArgumentException("not set dueDate");
-        }
-        return new TaskEntity(name, dueDate, TaskStatus.OPEN);
-    }
+	private LocalDate dueDate;
 
-    public static TaskEntity reconstruct(int id, String name, LocalDate dueDate, TaskStatus status) {
-        return new TaskEntity(id, name, dueDate, status);
-    }
+	private TaskStatus taskStatus;
 
-    public int getId() {
-        return id;
-    }
+	private TaskEntity(String name, LocalDate dueDate, TaskStatus taskStatus) {
+		this.name = name;
+		this.dueDate = dueDate;
+		this.taskStatus = taskStatus;
+	}
 
-    public String getName() {
-        return name;
-    }
+	TaskEntity(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
+		this.id = id;
+		this.name = name;
+		this.dueDate = dueDate;
+		this.taskStatus = taskStatus;
+	}
 
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
+	public static TaskEntity create(String name, LocalDate dueDate) {
+		if (name == null || name.equals("")) {
+			throw new IllegalArgumentException("not set name");
+		}
+		if (dueDate == null) {
+			throw new IllegalArgumentException("not set dueDate");
+		}
+		return new TaskEntity(name, dueDate, TaskStatus.OPEN);
+	}
 
-    public TaskStatus getTaskStatus() {
-        return taskStatus;
-    }
+	public static TaskEntity reconstruct(int id, String name, LocalDate dueDate, TaskStatus status) {
+		return new TaskEntity(id, name, dueDate, status);
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TaskEntity that = (TaskEntity) o;
-        return id == that.id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+	public String getName() {
+		return name;
+	}
+
+	public LocalDate getDueDate() {
+		return dueDate;
+	}
+
+	public TaskStatus getTaskStatus() {
+		return taskStatus;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		TaskEntity that = (TaskEntity) o;
+		return id == that.id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
 }

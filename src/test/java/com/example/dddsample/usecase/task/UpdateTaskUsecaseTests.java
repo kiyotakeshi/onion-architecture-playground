@@ -22,21 +22,22 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class UpdateTaskUsecaseTests {
 
-    @InjectMocks
-    UpdateTaskUsecase sut;
+	@InjectMocks
+	UpdateTaskUsecase sut;
 
-    @Mock
-    TaskRepository taskRepository;
+	@Mock
+	TaskRepository taskRepository;
 
-    @Test
-    void updateTask() {
-        TaskEntity taskEntity = TaskEntityFixture.TASK_A();
-        when(taskRepository.selectById(anyInt())).thenReturn(taskEntity);
-        when(taskRepository.update(isA(TaskEntity.class))).thenReturn(taskEntity);
+	@Test
+	void updateTask() {
+		TaskEntity taskEntity = TaskEntityFixture.TASK_A();
+		when(taskRepository.selectById(anyInt())).thenReturn(taskEntity);
+		when(taskRepository.update(isA(TaskEntity.class))).thenReturn(taskEntity);
 
-        sut.updateTask(1, "sample", LocalDate.now(), TaskStatus.IN_PROGRESS);
+		sut.updateTask(1, "sample", LocalDate.now(), TaskStatus.IN_PROGRESS);
 
-        verify(taskRepository, times(1)).selectById(eq(1));
-        verify(taskRepository, times(1)).update(isA(TaskEntity.class));
-    }
+		verify(taskRepository, times(1)).selectById(eq(1));
+		verify(taskRepository, times(1)).update(isA(TaskEntity.class));
+	}
+
 }

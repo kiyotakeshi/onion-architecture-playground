@@ -12,13 +12,14 @@ import java.util.List;
 @Service
 public class GetTasksUsecase {
 
-    private final TaskRepository taskRepository;
+	private final TaskRepository taskRepository;
 
-    public GetTasksUsecase(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
+	public GetTasksUsecase(TaskRepository taskRepository) {
+		this.taskRepository = taskRepository;
+	}
 
-    public List<TaskEntity> getTasks() {
-        return taskRepository.selectAll();
-    }
+	public List<TaskEntity> getTasks() {
+		return taskRepository.selectAll();
+	}
+
 }

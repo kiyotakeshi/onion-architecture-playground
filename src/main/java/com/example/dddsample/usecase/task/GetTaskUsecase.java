@@ -10,13 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetTaskUsecase {
 
-    private final TaskRepository taskRepository;
+	private final TaskRepository taskRepository;
 
-    public GetTaskUsecase(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
+	public GetTaskUsecase(TaskRepository taskRepository) {
+		this.taskRepository = taskRepository;
+	}
 
-    public TaskEntity getTask(Integer id) {
-        return taskRepository.selectById(id);
-    }
+	public TaskEntity getTask(Integer id) {
+		return taskRepository.selectById(id);
+	}
+
 }

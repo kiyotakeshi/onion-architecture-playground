@@ -15,27 +15,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 /**
- * {@link  * {@link com.example.dddsample.usecase.task.GetTasksUsecase}
+ * {@link * {@link com.example.dddsample.usecase.task.GetTasksUsecase}
+ *
  * @author kiyota
  */
 @ExtendWith(MockitoExtension.class)
 class GetTasksUsecaseTests {
 
-    @InjectMocks
-    GetTasksUsecase sut;
+	@InjectMocks
+	GetTasksUsecase sut;
 
-    @Mock
-    TaskRepository taskRepository;
+	@Mock
+	TaskRepository taskRepository;
 
-    @Test
-    void getTasks() {
-        List<TaskEntity> taskEntities = List.of(TaskEntityFixture.TASK_A(), TaskEntityFixture.TASK_B());
-        when(taskRepository.selectAll()).thenReturn(taskEntities);
+	@Test
+	void getTasks() {
+		List<TaskEntity> taskEntities = List.of(TaskEntityFixture.TASK_A(), TaskEntityFixture.TASK_B());
+		when(taskRepository.selectAll()).thenReturn(taskEntities);
 
-        List<TaskEntity> actual = sut.getTasks();
+		List<TaskEntity> actual = sut.getTasks();
 
-        verify(taskRepository, times(1)).selectAll();
-        assertThat(actual).hasSize(2);
-        assertThat(actual.get(0)).isEqualTo(TaskEntityFixture.TASK_A());
-    }
+		verify(taskRepository, times(1)).selectAll();
+		assertThat(actual).hasSize(2);
+		assertThat(actual.get(0)).isEqualTo(TaskEntityFixture.TASK_A());
+	}
+
 }

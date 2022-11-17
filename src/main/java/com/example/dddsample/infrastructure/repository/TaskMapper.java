@@ -10,13 +10,15 @@ import java.util.List;
  */
 @Mapper
 public interface TaskMapper {
-    Task selectById(@Param("id") int id);
 
-    List<Task> selectAll();
+	Task selectById(@Param("id") int id);
 
-    void save(Task task);
+	List<Task> selectAll();
 
-    void deleteById(@Param("id") int id);
+	void save(Task task);
 
-    Task update(Task task);
+	void deleteById(@Param("id") int id);
+
+	Task update(Task task);
+
 }

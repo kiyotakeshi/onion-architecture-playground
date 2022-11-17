@@ -15,18 +15,19 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class DeleteTaskUsecaseTests {
 
-    @InjectMocks
-    DeleteTaskUsecase sut;
+	@InjectMocks
+	DeleteTaskUsecase sut;
 
-    @Mock
-    TaskRepository taskRepository;
+	@Mock
+	TaskRepository taskRepository;
 
-    @Test
-    void deleteTask() {
-        doNothing().when(this.taskRepository).deleteById(anyInt());
+	@Test
+	void deleteTask() {
+		doNothing().when(this.taskRepository).deleteById(anyInt());
 
-        sut.deleteTask(1);
+		sut.deleteTask(1);
 
-        verify(taskRepository, times(1)).deleteById(eq(1));
-    }
+		verify(taskRepository, times(1)).deleteById(eq(1));
+	}
+
 }
