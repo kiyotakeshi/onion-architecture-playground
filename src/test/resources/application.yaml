@@ -1,19 +1,19 @@
 # https://spring.pleiades.io/spring-boot/docs/current/reference/html/application-properties.html
 spring:
-  jpa:
-    hibernate:
-      # schema.sql と data.sql の両方を使うときは create-drop
-      # https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.using-basic-sql-scripts
-#       ddl-auto: create-drop
-      ddl-auto: none
-    show-sql: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password:
   sql:
     init:
       mode: embedded
       schema-locations: classpath:db/schema.sql
+
   flyway:
     enabled: false
-
+  jooq:
+    sql-dialect: h2
 logging:
   level:
     org:

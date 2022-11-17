@@ -1,8 +1,9 @@
--- create sequence hibernate_sequence start with 1000 increment by 1;
+create sequence todo_id_seq start with 10001;
 
 create table task
 (
-    id          integer not null auto_increment,
+--     id          SERIAL not null,
+    id          integer not null DEFAULT nextval('todo_id_seq'),
     due_date    date,
     name        varchar(255),
     task_status integer,
