@@ -1,6 +1,7 @@
 package com.example.dddsample.domain.task;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @author kiyota
@@ -17,7 +18,7 @@ public class TaskEntity {
         this.dueDate = dueDate;
         this.taskStatus = taskStatus;
     }
-    private TaskEntity(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
+    TaskEntity(int id, String name, LocalDate dueDate, TaskStatus taskStatus) {
         this.id = id;
         this.name = name;
         this.dueDate = dueDate;
@@ -25,8 +26,11 @@ public class TaskEntity {
     }
 
     public static TaskEntity create(String name, LocalDate dueDate) {
-        if(name == null || dueDate == null) {
-            throw new IllegalArgumentException("not set requirement");
+        if(name == null || name.equals("")) {
+            throw new IllegalArgumentException("not set name");
+        }
+        if(dueDate == null){
+            throw new IllegalArgumentException("not set dueDate");
         }
         return new TaskEntity(name, dueDate, TaskStatus.OPEN);
     }
@@ -49,5 +53,18 @@ public class TaskEntity {
 
     public TaskStatus getTaskStatus() {
         return taskStatus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskEntity that = (TaskEntity) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

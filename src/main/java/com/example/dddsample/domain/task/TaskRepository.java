@@ -9,7 +9,7 @@ public interface TaskRepository {
     TaskEntity selectById(int id);
     List<TaskEntity> selectAll();
     void save(TaskEntity taskEntity);
-    void deleteTask(Integer id);
+    void deleteById(Integer id);
 
-    com.example.dddsample.infrastructure.repository.Task update(TaskEntity taskEntity);
+    TaskEntity update(TaskEntity taskEntity);
 }

@@ -16,6 +16,6 @@ public class DeleteTaskUsecase {
     }
 
     public void deleteTask(Integer id) {
-        taskRepository.deleteTask(id);
+        taskRepository.deleteById(id);
     }
 }

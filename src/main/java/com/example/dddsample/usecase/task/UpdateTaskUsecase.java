@@ -3,7 +3,6 @@ package com.example.dddsample.usecase.task;
 import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskRepository;
 import com.example.dddsample.domain.task.TaskStatus;
-import com.example.dddsample.infrastructure.repository.Task;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -21,12 +20,8 @@ public class UpdateTaskUsecase {
     }
 
     public TaskEntity updateTask(Integer id, String name, LocalDate dueDate, TaskStatus taskStatus) {
-        TaskEntity found = taskRepository.selectById(id);
-        if (found == null) {
-            throw new RuntimeException();
-        }
+        taskRepository.selectById(id);
         TaskEntity taskEntity = TaskEntity.reconstruct(id, name, dueDate, taskStatus);
-        Task update = taskRepository.update(taskEntity);
-        return TaskEntity.reconstruct(update.getId(), update.getName(), update.getDueDate(), update.getTaskStatus());
+        return taskRepository.update(taskEntity);
     }
 }

@@ -20,13 +20,16 @@ public class TaskMyBatisRepository implements TaskRepository {
 
     @Override
     public TaskEntity selectById(int id) {
-        var task = taskMapper.selectById(id);
+        Task task = taskMapper.selectById(id);
+        if(task == null){
+            throw new RuntimeException();
+        }
         return TaskEntity.reconstruct(task.getId(), task.getName(), task.getDueDate(), task.getTaskStatus());
     }
 
     @Override
     public List<TaskEntity> selectAll() {
-        var tasks = taskMapper.selectAll();
+        List<Task> tasks = taskMapper.selectAll();
         return tasks.stream()
                 .map(task ->
                         TaskEntity.reconstruct(task.getId(), task.getName(), task.getDueDate(), task.getTaskStatus()))
@@ -35,18 +38,19 @@ public class TaskMyBatisRepository implements TaskRepository {
 
     @Override
     public void save(TaskEntity taskEntity) {
-        var task1 = new Task(taskEntity.getName(), taskEntity.getDueDate(), taskEntity.getTaskStatus());
-        taskMapper.save(task1);
+        Task task = new Task(taskEntity.getName(), taskEntity.getDueDate(), taskEntity.getTaskStatus());
+        taskMapper.save(task);
     }
 
     @Override
-    public void deleteTask(Integer id) {
+    public void deleteById(Integer id) {
         taskMapper.deleteById(id);
     }
 
     @Override
-    public Task update(TaskEntity taskEntity) {
-        Task task1 = new Task(taskEntity.getId(), taskEntity.getName(), taskEntity.getDueDate(), taskEntity.getTaskStatus());
-        return taskMapper.update(task1);
+    public TaskEntity update(TaskEntity taskEntity) {
+        Task task = new Task(taskEntity.getId(), taskEntity.getName(), taskEntity.getDueDate(), taskEntity.getTaskStatus());
+        Task update = taskMapper.update(task);
+        return TaskEntity.reconstruct(update.getId(), update.getName(), update.getDueDate(), update.getTaskStatus());
     }
 }
