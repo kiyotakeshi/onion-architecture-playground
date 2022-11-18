@@ -1,4 +1,4 @@
-package com.example.dddsample.infrastructure.repository;
+package com.example.dddsample.infrastructure.repository.mybatis;
 
 import com.example.dddsample.domain.task.TaskStatus;
 

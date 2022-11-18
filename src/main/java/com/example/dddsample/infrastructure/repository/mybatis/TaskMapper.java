@@ -1,4 +1,4 @@
-package com.example.dddsample.infrastructure.repository;
+package com.example.dddsample.infrastructure.repository.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

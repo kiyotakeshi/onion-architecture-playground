@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dddsample.infrastructure.repository.TaskMapper">
-    <resultMap id="task" type="com.example.dddsample.infrastructure.repository.Task">
+<mapper namespace="com.example.dddsample.infrastructure.repository.mybatis.TaskMapper">
+    <resultMap id="task" type="com.example.dddsample.infrastructure.repository.mybatis.Task">
         <!-- 自動マッピング使ってみる?? https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#%E8%87%AA%E5%8B%95%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0 -->
         <id column="id" property="id" />
         <result column="name" property="name"/>

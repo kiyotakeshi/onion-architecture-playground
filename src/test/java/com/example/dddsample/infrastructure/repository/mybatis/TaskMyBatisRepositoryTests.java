@@ -1,4 +1,4 @@
-package com.example.dddsample.infrastructure.repository;
+package com.example.dddsample.infrastructure.repository.mybatis;
 
 import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskEntityFixture;
@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * {@link com.example.dddsample.infrastructure.repository.TaskMyBatisRepository}
+ * {@link TaskMyBatisRepository}
  * @author kiyota
  */
 @MybatisTest

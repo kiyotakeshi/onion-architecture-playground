@@ -2,13 +2,11 @@ package com.example.dddsample.infrastructure.repository.jooq;
 
 import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskRepository;
-import com.example.dddsample.domain.task.TaskStatus;
 import com.example.jooq.codegen.tables.records.TaskRecord;
 import org.jooq.DSLContext;
-import org.jooq.impl.EnumConverter;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
-import com.example.jooq.codegen.tables.pojos.Task;
+
 import java.util.List;
 
 import static com.example.jooq.codegen.tables.Task.TASK;

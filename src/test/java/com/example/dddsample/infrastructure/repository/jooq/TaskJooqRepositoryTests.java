@@ -3,20 +3,14 @@ package com.example.dddsample.infrastructure.repository.jooq;
 import com.example.dddsample.domain.task.TaskEntity;
 import com.example.dddsample.domain.task.TaskEntityFixture;
 import com.example.dddsample.domain.task.TaskRepository;
-import com.example.dddsample.domain.task.TaskStatus;
-import com.example.dddsample.infrastructure.repository.TaskMyBatisRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jooq.JooqTest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.jdbc.Sql;
 
-import java.time.LocalDate;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author kiyota
