@@ -14,3 +14,10 @@ spring:
     baseline-description: Initial
     #    @see org/springframework/boot/autoconfigure/flyway/FlywayProperties.java
     locations: "classpath:db/migration"
+
+logging:
+  level:
+    org:
+      jooq:
+        tools:
+          LoggerListener: DEBUG

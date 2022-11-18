@@ -6,7 +6,7 @@
 
 - [x] [MyBatis 3](https://mybatis.org/mybatis-3/index.html) を試してみる
 
-- [ ] [jOOQ](https://www.jooq.org/) を試してみる
+- [x] [jOOQ](https://www.jooq.org/) を試してみる
 
 ## requirement
 

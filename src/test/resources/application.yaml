@@ -18,8 +18,10 @@ logging:
   level:
     org:
       springframework: WARN
-    com:
       example:
         dddsample:
           infrastructure:
-            repository: DEBUG
+            repository:
+              mybatis: DEBUG
+
+

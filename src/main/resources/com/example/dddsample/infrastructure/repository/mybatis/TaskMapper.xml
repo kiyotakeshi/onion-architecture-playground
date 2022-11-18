@@ -23,7 +23,7 @@
         values (#{name}, #{dueDate}, #{taskStatus, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler, javaType=com.example.dddsample.domain.task.TaskStatus})
     </insert>
     <!--@see https://github.com/mybatis/mybatis-3/issues/1293#issuecomment-501636112 -->
-    <select id="update" resultMap="task">
+    <select id="update" resultMap="task" flushCache="true">
         update
             task
         set
