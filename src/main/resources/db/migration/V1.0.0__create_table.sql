@@ -10,3 +10,10 @@ create table task
     task_status integer,
     primary key (id)
 );
+
+--insert into task
+--(due_date, name, task_status)
+--values
+--('2021-01-01','task 1',1),
+--('2021-01-02','task 2',2),
+--('2021-01-03','task 3',3);

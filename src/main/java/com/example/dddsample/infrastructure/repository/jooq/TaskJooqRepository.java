@@ -1,9 +1,11 @@
 package com.example.dddsample.infrastructure.repository.jooq;
 
 import com.example.dddsample.domain.task.TaskEntity;
+import com.example.dddsample.domain.task.TaskOrderKey;
 import com.example.dddsample.domain.task.TaskRepository;
 import com.example.jooq.codegen.tables.records.TaskRecord;
 import org.jooq.DSLContext;
+import org.jooq.OrderField;
 import org.jooq.Result;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -78,4 +80,15 @@ public class TaskJooqRepository implements TaskRepository {
 						taskRecord.getTaskStatus());
 	}
 
+	public List<TaskEntity> selectAll(TaskOrderKey orderKey) {
+		OrderField<?> orderColumn = orderKey == TaskOrderKey.NAME ? TASK.NAME.asc() : TASK.ID.asc();
+		Result<TaskRecord> taskRecords = this.create.selectFrom(TASK) //
+				.orderBy(orderColumn) //
+				.fetch();
+
+		return taskRecords.stream() //
+				.map(record -> TaskEntity.reconstruct( //
+						record.getId(), record.getName(), record.getDueDate(), record.getTaskStatus())) //
+				.collect(Collectors.toList());
+	}
 }
